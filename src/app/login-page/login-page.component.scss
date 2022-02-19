@@ -1,0 +1,53 @@
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.inputs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 25px;
+}
+
+.sing-in-button {
+  width: 150px;
+  @media screen and (max-width: 499px)
+  {
+    margin-bottom: 10px;
+  }
+}
+
+.sing-up-button {
+  width: 150px;
+  margin-left: 10px;
+  @media screen and (max-width: 499px)
+  {
+    margin-left: 0;
+  }
+}
+
+.log-panel {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  background-color: ghostwhite;
+  box-shadow: 0 0 68px -26px rgba(66, 68, 90, 0.84);
+  margin: 50px;
+  width: 450px;
+  height: 300px;
+}
+
+.sign-in-title {
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  width: 100%;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
