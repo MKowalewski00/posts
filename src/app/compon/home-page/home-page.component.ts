@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Auth} from "@angular/fire/auth";
+import {Auth, UserCredential} from "@angular/fire/auth";
+import {AuthService} from "../auth/services/auth.service";
 
 @Component({
   selector: 'app-home-page',
@@ -8,18 +9,22 @@ import {Auth} from "@angular/fire/auth";
 })
 export class HomePageComponent implements OnInit {
 
-  email = this._Auth.currentUser?.email;
-  uid = this._Auth.currentUser?.uid;
-  lastSignInTime = this._Auth.currentUser?.metadata.lastSignInTime;
-  creationTime = this._Auth.currentUser?.metadata.creationTime;
+  user: UserCredential = JSON.parse(localStorage.getItem('user') || '{}');
 
-  constructor(private _Auth: Auth) { }
+  email = this.user.user.email;
+  uid = this.user.user.uid;
+  displayName = this.user.user.displayName;
+  provider = this.user.user.providerData[0].providerId
+
+  constructor(private _auth: Auth, private _authService: AuthService) {
+  }
   ngOnInit(): void {
+
   }
 
 
-
-
-
+  logOut() {
+    this._authService.logOut();
+  }
 }
 

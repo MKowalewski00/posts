@@ -18,7 +18,7 @@
        <mat-error *ngIf="form.hasError('maxlength')">Password is too long!</mat-error>
      </mat-form-field>
      <button type="submit" [disabled]="!form.valid" class="sing-in-button" (click)="login()" mat-raised-button>Sign in</button>
-     <button type="submit" class="sing-up-button" mat-raised-button (click)="createAccount()">Sign Up</button>
+     <button type="submit" [disabled]="!form.valid" class="sing-up-button" mat-raised-button (click)="createAccount()">Sign Up</button>
    </div>
   </div>
 

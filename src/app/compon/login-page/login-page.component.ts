@@ -23,7 +23,6 @@ export class LoginPageComponent implements OnInit {
   )
   email = '';
   password = '';
-  private errorMessage: string = '';
   error!: FirebaseError;
 
   constructor(private _authService: AuthService, private _router: Router) { }
@@ -35,10 +34,9 @@ export class LoginPageComponent implements OnInit {
     this._authService.emailLogin(this.email, this.password).subscribe({
       next: (user) => {
         this.user = user;
+        this._authService.setCurrentUser(user);
         this._router.navigate(['/home'])
-        console.log(this.user.user.providerData[0]);
         console.log(this.user.user.toJSON());
-        console.log(this.user.user.metadata);
       },
       error: (error) => {
         this.error = error;
