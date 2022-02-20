@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.user-panel {
+  display: flex;
+  background-color: ghostwhite;
+  box-shadow: 0 0 68px -26px rgba(66, 68, 90, 0.84);
+  border-radius: 2px;
+  padding: 25px;
+}
+
+.info-panel {
+  display: grid;
+  margin-left: 25px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: groove;
+}
+
+.account-circle {
+  width: 150px;
+  height: 150px;
+  font-size: 150px;
+  color: deepskyblue;
+}

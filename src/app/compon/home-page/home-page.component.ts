@@ -8,17 +8,16 @@ import {Auth} from "@angular/fire/auth";
 })
 export class HomePageComponent implements OnInit {
 
-  email : any;
+  email = this._Auth.currentUser?.email;
+  uid = this._Auth.currentUser?.uid;
+  lastSignInTime = this._Auth.currentUser?.metadata.lastSignInTime;
+  creationTime = this._Auth.currentUser?.metadata.creationTime;
 
   constructor(private _Auth: Auth) { }
   ngOnInit(): void {
-    if (this._Auth.currentUser) {
-      this.email = this._Auth.currentUser.email;
-    } else
-    {
-      this.email = 'kurw nima'
-    }
   }
+
+
 
 
 

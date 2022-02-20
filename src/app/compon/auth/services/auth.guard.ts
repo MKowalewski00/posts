@@ -13,16 +13,23 @@ import {Auth} from "@angular/fire/auth";
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private _auth: Auth, private _router: Router) {}
+  constructor(private _router: Router, private _auth: Auth) {}
+
+  user: any;
 
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(this._auth.currentUser)
+
+    this.user = localStorage.setItem('uset', JSON.stringify(this._auth.currentUser));
+
+    if (this.user !== null)
     {
       return true;
     } else {
+      console.log("not logged in")
+      this._router.navigate(['/login'])
       return false;
     }
 

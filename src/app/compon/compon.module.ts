@@ -13,6 +13,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import {AuthGuard} from "./auth/services/auth.guard";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -31,9 +33,11 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     MatButtonModule,
     ReactiveFormsModule,
     FormsModule,
+    MatIconModule,
   ],
   providers : [
-    AuthService
+    AuthService,
+    AuthGuard
   ]
 })
 export class ComponModule { }
