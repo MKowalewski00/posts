@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Auth} from "@angular/fire/auth";
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  email : any;
 
+  constructor(private _Auth: Auth) { }
   ngOnInit(): void {
+    if (this._Auth.currentUser) {
+      this.email = this._Auth.currentUser.email;
+    } else
+    {
+      this.email = 'kurw nima'
+    }
   }
 
+
+
 }
+
